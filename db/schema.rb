@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 2020_01_29_020520) do
+ActiveRecord::Schema.define(version: 2020_01_29_021036) do
 
   create_table "houses", force: :cascade do |t|
     t.string "name", null: false
@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2020_01_29_020520) do
     t.integer "take_minutes", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "house_id"
+    t.index ["house_id"], name: "index_stations_on_house_id"
   end
 
 end
