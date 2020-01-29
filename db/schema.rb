@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 2020_01_29_015731) do
+ActiveRecord::Schema.define(version: 2020_01_29_020520) do
 
   create_table "houses", force: :cascade do |t|
     t.string "name", null: false
@@ -11,9 +11,9 @@ ActiveRecord::Schema.define(version: 2020_01_29_015731) do
   end
 
   create_table "stations", force: :cascade do |t|
-    t.string "line"
-    t.string "name"
-    t.integer "take_minutes"
+    t.string "line", null: false
+    t.string "name", null: false
+    t.integer "take_minutes", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
