@@ -1,0 +1,23 @@
+<%= form_with(model: house, local: true) do |f| %>
+  <div class="house_name">
+    <%= f.label :name, "物件名" %>
+    <%= f.text_field :name, placeholder: "物件名" %>
+  </div>
+  <div class="house_price">
+    <%= f.label :price, "賃料" %>
+    <%= f.number_field :price, placeholder: "賃料" %>
+  </div>
+  <div class="house_address">
+    <%= f.label :address, "住所" %>
+    <%= f.text_field :address, placeholder: "東京都渋谷区円山町28番4号大場ビルA館 " %>
+  </div>
+  <div class="house_age">
+    <%= f.label :age, "築年数" %>
+    <%= f.number_field :age%>
+  </div>
+  <div class="house_comment">
+    <%= f.label :comment, "備考" %>
+    <%= f.text_area :comment %>
+  </div>
+  <%= f.submit %>
+<% end %>
