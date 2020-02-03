@@ -1,4 +1,4 @@
-<%= form_with(model: house, local: true) do |f| %>
+<%= form_for(house, url: houses_path) do |f| %>
   <div class="house_name">
     <%= f.label :name, "物件名" %>
     <%= f.text_field :name, placeholder: "物件名" %>
@@ -19,5 +19,20 @@
     <%= f.label :comment, "備考" %>
     <%= f.text_area :comment %>
   </div>
+
+  <%= f.fields_for(:stations) do |form| %>
+    <div class="stations_line">
+      <%= form.label :line, "路線名" %>
+      <%= form.text_field :line, placeholder: "路線名" %>
+    </div>
+    <div class="stations_price">
+      <%= form.label :name, "駅名" %>
+      <%= form.text_field :name, placeholder: "駅名" %>
+    </div>
+    <div class="stations_take_minutes">
+      <%= form.label :take_minutes, "徒歩分数" %>
+      <%= form.number_field :take_minutes, placeholder: "徒歩分数" %>
+    </div>
+  <% end %>
   <%= f.submit %>
 <% end %>
