@@ -1,39 +1,45 @@
 <%= form_for(house, url: houses_path) do |f| %>
-  <div class="house_name">
+  <div class="house_name form-group">
     <%= f.label :name, "物件名" %>
-    <%= f.text_field :name, placeholder: "物件名" %>
+    <%= f.text_field :name, placeholder: "物件名", class: "form-control" %>
   </div>
-  <div class="house_price">
+  <div class="house_price form-group">
     <%= f.label :price, "賃料" %>
-    <%= f.number_field :price, placeholder: "賃料" %>
+    <%= f.number_field :price, placeholder: "賃料", class: "form-control" %>
   </div>
-  <div class="house_address">
+  <div class="house_address form-group">
     <%= f.label :address, "住所" %>
-    <%= f.text_field :address, placeholder: "東京都渋谷区円山町28番4号大場ビルA館 " %>
+    <%= f.text_field :address, placeholder: "東京都渋谷区円山町28番4号大場ビルA館", class: "form-control" %>
   </div>
-  <div class="house_age">
+  <div class="house_age form-group">
     <%= f.label :age, "築年数" %>
-    <%= f.number_field :age%>
+    <%= f.number_field :age, placeholder: "築年数", class: "form-control" %>
   </div>
-  <div class="house_comment">
+  <div class="house_comment form-group">
     <%= f.label :comment, "備考" %>
-    <%= f.text_area :comment %>
+    <%= f.text_area :comment, placeholder: "コメント", class: "form-control" %>
   </div>
 
-  <%= f.nested_fields_for :stations, wrapper_tag: :div do |form| %>
-    <div class="stations_line">
-      <%= form.label :line, "路線名" %>
-      <%= form.text_field :line, placeholder: "路線名" %>
-    </div>
-    <div class="stations_price">
-      <%= form.label :name, "駅名" %>
-      <%= form.text_field :name, placeholder: "駅名" %>
-    </div>
-    <div class="stations_take_minutes">
-      <%= form.label :take_minutes, "徒歩分数" %>
-      <%= form.number_field :take_minutes, placeholder: "徒歩分数" %>
-    </div>
-  <% end %>
-  <%= f.add_nested_fields_link :stations, 'Add Stations' %>
-  <%= f.submit %>
+  <div class="stations">
+    <% i = 0 %>
+    <%= f.nested_fields_for :stations, wrapper_tag: :div do |form| %>
+    <% i += 1 %>
+    <p><%= "最寄駅#{i}" %></p>
+    <div class="form-row">
+      <div class="stations_line col">
+        <%= form.label :line, "路線名" %>
+        <%= form.text_field :line, placeholder: "路線名", class: "form-control" %>
+      </div>
+      <div class="stations_price col" >
+        <%= form.label :name, "駅名" %>
+        <%= form.text_field :name, placeholder: "駅名", class: "form-control" %>
+      </div>
+      <div class="stations_take_minutes col">
+        <%= form.label :take_minutes, "徒歩分数" %>
+        <%= form.number_field :take_minutes, placeholder: "徒歩分数", class: "form-control" %>
+      </div>
+    <% end %>
+  <%= f.add_nested_fields_link :stations, '最寄り駅を追加' %>
+  <div class="form-submit"><%= f.submit class: "btn btn-primary" %></div>
+  </div>
 <% end %>

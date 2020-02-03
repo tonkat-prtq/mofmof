@@ -28,3 +28,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'slim-rails'
 gem 'html2slim'
 gem 'nested_form_fields'
+gem 'bootstrap'
