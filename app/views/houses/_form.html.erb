@@ -20,7 +20,7 @@
     <%= f.text_area :comment %>
   </div>
 
-  <%= f.fields_for(:stations) do |form| %>
+  <%= f.nested_fields_for :stations, wrapper_tag: :div do |form| %>
     <div class="stations_line">
       <%= form.label :line, "路線名" %>
       <%= form.text_field :line, placeholder: "路線名" %>
@@ -34,5 +34,6 @@
       <%= form.number_field :take_minutes, placeholder: "徒歩分数" %>
     </div>
   <% end %>
+  <%= f.add_nested_fields_link :stations, 'Add Stations' %>
   <%= f.submit %>
 <% end %>
