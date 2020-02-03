@@ -1,4 +1,5 @@
 class HousesController < ApplicationController
+  before_action :set_house, only: [:edit, :update, :destroy, :show]
   def index
     @houses = House.all
   end
@@ -14,7 +15,7 @@ class HousesController < ApplicationController
       render :new
     else
       if @house.save
-        # redirect_to houses_path
+        redirect_to houses_path
       else
         render :new
       end
@@ -31,12 +32,17 @@ class HousesController < ApplicationController
   end
 
   def show
+
   end
 
   private
 
   def house_params
     params.require(:house).permit(:name, :price, :address, :age, :comment, stations_attributes: %i(id line name take_minutes))
+  end
+
+  def set_house
+    @house = House.find(params[:id])
   end
 
 end
