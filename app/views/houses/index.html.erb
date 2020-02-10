@@ -20,7 +20,7 @@
       <td><%= house.age %></td>
       <td><%= house.comment %></td>
       <td><%= link_to "詳細", house_path(house.id) %></td>
-      <td><%= link_to "編集", edit_house_path(house.id) %></td>
+      <td data-turbolinks="false"><%= link_to "編集", edit_house_path(house.id) %></td>
       <td><%= link_to "削除", house_path(house.id), method: :delete %></td>
     </tr>
     <% end %>
