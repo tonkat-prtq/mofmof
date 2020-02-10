@@ -55,6 +55,7 @@
     <% end %>
   <%= f.add_nested_fields_link :stations, '最寄り駅を追加', id: "addSta"%>
   <div class="form-submit"><%= f.submit class: "btn btn-primary" %></div>
+  <%= link_to '戻る', houses_path, class: 'btn btn-default'%>
 <% end %>
 
 <script>

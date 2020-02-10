@@ -18,7 +18,8 @@
   </div>
   <hr class="style13">
 <% end %>
-
+  <%= link_to '編集', edit_house_path(@house.id), class: 'btn btn-primary'%>
+  <%= link_to '戻る', houses_path, class: 'btn btn-default'%>
 <style>
 .pill {
   height:0px;
